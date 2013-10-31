@@ -1,0 +1,15 @@
+.DS_Store
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+*.userprefs
+*.csproj
+*.pidb
+*.sln
+build
+*.swp
+*.pyc
+*.suo
+*.DotSettings
+*.unityproj
+*.userprefs
