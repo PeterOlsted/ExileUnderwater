@@ -3,22 +3,32 @@ using System.Collections;
 
 public class DiverPlayer : MonoBehaviour
 {
-    private bool canMove = true;
     private Vector3 moveDir;
-    private bool isMoving; 
 
     private CharacterController controller;
-    
 
+    [SerializeField]
+    private float _stepSpeed;
+    [SerializeField]
+    private float _stepLength;
+    [SerializeField]
+    private float _stepWait;
+    [SerializeField]
+    private float _stepWaitMinMagnitude;
+    [SerializeField]
+    private AnimationCurve _stepCurve;
     [SerializeField]
     private Vector3 _acceleration;
     [SerializeField]
     private float _maxSpeed;
 
-    [SerializeField]
-    private float _stepLength;
-    [SerializeField]
-    private float _timeBetweenSteps;
+    
+    private Vector3 _speed;
+
+    private float _stepStartTime;
+    private bool isMoving;
+    private bool canMove = true;
+
 
 	// Use this for initialization
 	void Awake ()
@@ -27,27 +37,40 @@ public class DiverPlayer : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    if (canMove && isInputPressed())
+	void Update ()
+	{
+	    if (!isMoving && IsInputPressed() && canMove)
 	    {
 	        StartCoroutine(WaitForMove());
 	    }
-
 	    if (isMoving)
 	    {
-
-
-            controller.Move(moveDir * Time.deltaTime + Physics.gravity * Time.deltaTime);
+	        float endTime = _stepStartTime + _stepLength;
+	        float stepPercentage = 1.0f - ((endTime - Time.time) / _stepLength);
+            Vector3 move = moveDir.Mul(_acceleration) * _stepCurve.Evaluate(stepPercentage);
+	        _speed += move * Time.deltaTime;
 	    }
-        else
-            controller.Move(Physics.gravity * Time.deltaTime);
+
+	    if (!isMoving)
+	    {
+	        _speed.x = _speed.x - Mathf.Lerp(_speed.x, 0, 0.1f) * Time.deltaTime;
+            _speed.z = _speed.z - Mathf.Lerp(_speed.z, 0, 0.1f) * Time.deltaTime;
+	    }
+
+	    if (_speed.magnitude > _maxSpeed)
+	        _speed = Vector3.ClampMagnitude(_speed, _maxSpeed);
+
+	    controller.Move(_speed*Time.deltaTime + Physics.gravity*Time.deltaTime);
 	}
 
-    IEnumerator WaitForMove()
-    {
-        isMoving = false;
-        canMove = false;
-        yield return new WaitForSeconds(_timeBetweenSteps);
+     IEnumerator WaitForMove()
+     {
+         canMove = false;
+         isMoving = false;
+         if (_speed.magnitude > _stepWaitMinMagnitude)
+            yield return new WaitForSeconds(_stepWait);
+        isMoving = true;
+        _stepStartTime = Time.time;
         if (Input.GetKey(KeyCode.W))
         {
             moveDir = Vector3.forward;
@@ -64,13 +87,13 @@ public class DiverPlayer : MonoBehaviour
         {
             moveDir += Vector3.right;
         }
-        isMoving = true;
+        
         yield return new WaitForSeconds(_stepLength);
         isMoving = false;
-        canMove = true;
-    }
+         canMove = true;
+     }
 
-    bool isInputPressed()
+    bool IsInputPressed()
     {
         return Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
     }

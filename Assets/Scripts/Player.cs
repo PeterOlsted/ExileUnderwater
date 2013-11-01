@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
+    public static Player PlayerControl
+    {
+        get; private set;
+    }
+
     private CharacterController controller;
 
     [SerializeField] 
@@ -14,8 +19,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float _stopSpeed;
 
-    void Awake()
+    void OnEnable()
     {
+        PlayerControl = this;
         controller = GetComponent<CharacterController>();
     }
 
