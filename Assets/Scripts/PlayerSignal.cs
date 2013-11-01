@@ -13,22 +13,16 @@ public class PlayerSignal : MonoBehaviour
 
 
     private bool waiting;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
 	    if (Input.GetKeyDown(KeyCode.E))
 	    {
 	        HDRSystem.PostEvent(gameObject, SignalEvent);
-	        var signalStation = SignalMaster.Master.GetNext();
+	        var signalStation = SignalMaster.Master.GetLastActivated();
 	        if (Vector3.Distance(signalStation.transform.position, transform.position) < _activationRadius && !waiting)
 	        {
 	            waiting = true;
-                Debug.Log("yes");
 	            StartCoroutine(ActivateNext());
 	        }
 	    }
@@ -37,7 +31,6 @@ public class PlayerSignal : MonoBehaviour
     IEnumerator ActivateNext()
     {
         yield return new WaitForSeconds(_activationDelay);
-        Debug.Log("co signal");
         waiting = false;
         SignalMaster.Master.ActivateNextStation();
     }

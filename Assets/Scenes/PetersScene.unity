@@ -83,6 +83,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 60696252}
   - 108: {fileID: 60696253}
+  - 33: {fileID: 60696254}
+  - 23: {fileID: 60696255}
   m_Layer: 0
   m_Name: Activation
   m_TagString: Untagged
@@ -137,6 +139,31 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!33 &60696254
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 60696251}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &60696255
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 60696251}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
 --- !u!1 &93027919
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +257,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 119312190}
   - 108: {fileID: 119312191}
+  - 23: {fileID: 119312192}
+  - 33: {fileID: 119312193}
   m_Layer: 0
   m_Name: Activation
   m_TagString: Untagged
@@ -284,6 +313,31 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!23 &119312192
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 119312189}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+--- !u!33 &119312193
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 119312189}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &268371909
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,11 +568,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
       propertyPath: m_Enabled
@@ -531,6 +585,10 @@ Prefab:
     - target: {fileID: 100004, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
+      propertyPath: _stepWait
+      value: .600000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18ff8d2710c8eea49bd695471755d381, type: 2}
@@ -842,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepSpeed: 2
   _stepLength: .699999988
-  _stepWait: .300000012
+  _stepWait: .600000024
   _stepWaitMinMagnitude: .200000003
   _stepCurve:
     serializedVersion: 2
@@ -882,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b52efd575c1b6c47a2a34c890ef6dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SignalEvent: {fileID: 0}
+  SignalEvent: {fileID: 11400008, guid: 78d4e5aabe66b7147b92eefefeb703d0, type: 2}
   _activationRadius: 5
   _activationDelay: 3
 --- !u!1 &1132003290
@@ -894,6 +952,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1132003292}
   - 108: {fileID: 1132003291}
+  - 33: {fileID: 1132003293}
+  - 23: {fileID: 1132003294}
   m_Layer: 0
   m_Name: Activation
   m_TagString: Untagged
@@ -948,6 +1008,31 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1572426310}
+--- !u!33 &1132003293
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132003290}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1132003294
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132003290}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
 --- !u!1001 &1177925407
 Prefab:
   m_ObjectHideFlags: 0
@@ -1392,6 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stations:
+  - {fileID: 920618703}
   - {fileID: 1572426311}
   - {fileID: 93027920}
   _waitTimeToShow: 3
@@ -1457,7 +1543,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 890884463}
   m_GameObject: {fileID: 1994194158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d35a90bed98554f4d8b92c9cd3cfbafa, type: 3}
   m_Name: 
@@ -1500,7 +1586,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 890884463}
   m_GameObject: {fileID: 1994194158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd05e71c69dd4457fa205c9eea7c2326, type: 3}
   m_Name: 
@@ -1679,8 +1765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d6ce40e2caf9a4d80c9be260c5780c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedAudioNodeID: 1786443273
-  _selectedEventID: 685303441
+  _selectedAudioNodeID: 1787689931
+  _selectedEventID: 1570406454
   _selectedBusID: 0
   _selectedBankLinkID: 0
 --- !u!114 &2079275750
