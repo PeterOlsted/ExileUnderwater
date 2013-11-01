@@ -7,10 +7,9 @@ public class PlayerSignal : MonoBehaviour
     private AudioEvent SignalEvent;
 
     [SerializeField]
-    private float _activationRadius;
+    private float _activationRadius;                   
     [SerializeField]
     private float _activationDelay;
-
 
     private bool waiting;
 	
