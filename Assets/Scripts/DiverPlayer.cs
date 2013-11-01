@@ -47,28 +47,9 @@ public class DiverPlayer : MonoBehaviour
 	    {
 	        float endTime = _stepStartTime + _stepLength;
 	        float stepPercentage = 1.0f - ((endTime - Time.time) / _stepLength);
-	        //Vector3 move = Vector3.Scale(_acceleration, moveDir);
-            Vector3 move = Vector3.one.Mul(moveDir) * _stepSpeed * _stepCurve.Evaluate(stepPercentage);
-	        _speed += move.Mul(moveDir) * Time.deltaTime;
+            Vector3 move = moveDir.Mul(_acceleration) * _stepCurve.Evaluate(stepPercentage);
+	        _speed += move * Time.deltaTime;
 	    }
-       /* if (Input.GetKey(KeyCode.W))
-        {
-            Vector3 accel = _stepCurve.Evaluate() 
-            _speed += Vector3.Scale(transform.forward, accel) * Time.deltaTime;
-            
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            _speed += Vector3.Scale(-transform.forward, _acceleration)*Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            _speed += Vector3.Scale(-transform.right, _acceleration) * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            _speed += Vector3.Scale(transform.right, _acceleration) * Time.deltaTime;
-        }*/
 
 	    if (!isMoving)
 	    {

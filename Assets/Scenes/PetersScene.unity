@@ -316,8 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stepSpeed: 2
-  _stepLength: 1
-  _stepWait: .600000024
+  _stepLength: .699999988
+  _stepWait: .300000012
   _stepWaitMinMagnitude: .200000003
   _stepCurve:
     serializedVersion: 2
@@ -344,7 +344,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  _acceleration: {x: .400000006, y: 0, z: .600000024}
+  _acceleration: {x: 1.39999998, y: 0, z: 2}
   _maxSpeed: 1
 --- !u!1 &1165982614
 GameObject:
