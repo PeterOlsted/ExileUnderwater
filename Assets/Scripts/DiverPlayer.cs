@@ -8,10 +8,11 @@ public class DiverPlayer : MonoBehaviour
     private bool isMoving; 
 
     private CharacterController controller;
-    
 
     [SerializeField]
-    private Vector3 _acceleration;
+    private AnimationCurve _speedCurve;
+    [SerializeField]
+    private Vector3 _movementSpeed;
     [SerializeField]
     private float _maxSpeed;
 
@@ -19,6 +20,11 @@ public class DiverPlayer : MonoBehaviour
     private float _stepLength;
     [SerializeField]
     private float _timeBetweenSteps;
+
+    [SerializeField]
+    private float _nonStepSpeed;
+
+    private float _stepStartTime;
 
 	// Use this for initialization
 	void Awake ()
@@ -35,12 +41,33 @@ public class DiverPlayer : MonoBehaviour
 
 	    if (isMoving)
 	    {
-
-
-            controller.Move(moveDir * Time.deltaTime + Physics.gravity * Time.deltaTime);
+	        float endTime = _stepStartTime + _stepLength;
+	        float stepPercentage = (endTime - Time.time) / _stepLength;
+            Debug.Log(1 - stepPercentage + "  " + _speedCurve.Evaluate(1 - stepPercentage));
+            controller.Move(Vector3.Scale(moveDir, _movementSpeed) * _speedCurve.Evaluate(1 - stepPercentage) * Time.deltaTime + Physics.gravity * Time.deltaTime);
 	    }
-        else
-            controller.Move(Physics.gravity * Time.deltaTime);
+	    else
+	    {
+	        Vector3 move = Vector3.zero;
+            if (Input.GetKey(KeyCode.W))
+            {
+                move = Vector3.forward * _nonStepSpeed;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                move += -Vector3.forward * _nonStepSpeed;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                move += -Vector3.right  * _nonStepSpeed;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                move += Vector3.right  * _nonStepSpeed;
+            }
+	        move = Vector3.Scale(move, _movementSpeed)*Time.deltaTime;
+	        controller.Move(move + Physics.gravity*Time.deltaTime);
+	    }
 	}
 
     IEnumerator WaitForMove()
@@ -65,6 +92,7 @@ public class DiverPlayer : MonoBehaviour
             moveDir += Vector3.right;
         }
         isMoving = true;
+        _stepStartTime = Time.time;
         yield return new WaitForSeconds(_stepLength);
         isMoving = false;
         canMove = true;

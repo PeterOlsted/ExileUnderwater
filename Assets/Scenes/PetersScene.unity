@@ -315,10 +315,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d705e47f19d0342bf3c21a50938e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _acceleration: {x: .5, y: .5, z: .5}
+  _speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .0330574512
+      value: .014351815
+      inSlope: 9.57977009
+      outSlope: 9.57977009
+      tangentMode: 10
+    - time: .119753405
+      value: .84487915
+      inSlope: 2.10970402
+      outSlope: 2.10970402
+      tangentMode: 0
+    - time: .498313129
+      value: 1.00825763
+      inSlope: .0221755952
+      outSlope: .0221755952
+      tangentMode: 0
+    - time: .859726787
+      value: .912239552
+      inSlope: -1.2794137
+      outSlope: -1.2794137
+      tangentMode: 0
+    - time: .990804613
+      value: .0115942657
+      inSlope: .262597561
+      outSlope: .262597561
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  _movementSpeed: {x: .600000024, y: .600000024, z: .600000024}
   _maxSpeed: 5
-  _stepLength: .600000024
+  _stepLength: 1
   _timeBetweenSteps: .400000006
+  _nonStepSpeed: 0
 --- !u!1 &1165982614
 GameObject:
   m_ObjectHideFlags: 0
