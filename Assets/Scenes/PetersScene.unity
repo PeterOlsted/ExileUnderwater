@@ -318,28 +318,43 @@ MonoBehaviour:
   _speedCurve:
     serializedVersion: 2
     m_Curve:
-    - time: .0330574512
-      value: .014351815
-      inSlope: 9.57977009
-      outSlope: 9.57977009
+    - time: -.00874525309
+      value: -.0238129199
+      inSlope: .723607242
+      outSlope: .723607242
       tangentMode: 10
-    - time: .119753405
-      value: .84487915
-      inSlope: 2.10970402
-      outSlope: 2.10970402
+    - time: .0902165771
+      value: .0477965772
+      inSlope: .673225582
+      outSlope: .673225582
+      tangentMode: 0
+    - time: .191123411
+      value: .566429913
+      inSlope: 4.75023794
+      outSlope: 4.75023794
+      tangentMode: 0
+    - time: .275827229
+      value: .92157799
+      inSlope: 1.65224075
+      outSlope: 1.65224075
       tangentMode: 0
     - time: .498313129
-      value: 1.00825763
-      inSlope: .0221755952
-      outSlope: .0221755952
+      value: .98896718
+      inSlope: -.059596613
+      outSlope: -.059596613
       tangentMode: 0
-    - time: .859726787
-      value: .912239552
-      inSlope: -1.2794137
-      outSlope: -1.2794137
+    - time: .785786927
+      value: .899668157
+      inSlope: -1.58965588
+      outSlope: -1.58965588
       tangentMode: 0
-    - time: .990804613
-      value: .0115942657
+    - time: .850944877
+      value: .616402447
+      inSlope: -3.04185152
+      outSlope: -3.04185152
+      tangentMode: 0
+    - time: 1.0068295
+      value: .114196479
       inSlope: .262597561
       outSlope: .262597561
       tangentMode: 0
@@ -349,7 +364,7 @@ MonoBehaviour:
   _maxSpeed: 5
   _stepLength: 1
   _timeBetweenSteps: .400000006
-  _nonStepSpeed: 0
+  _nonStepSpeed: .300000012
 --- !u!1 &1165982614
 GameObject:
   m_ObjectHideFlags: 0
