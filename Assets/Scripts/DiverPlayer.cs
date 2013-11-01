@@ -71,21 +71,25 @@ public class DiverPlayer : MonoBehaviour
             yield return new WaitForSeconds(_stepWait);
         isMoving = true;
         _stepStartTime = Time.time;
+
+         Vector3 forward = transform.GetChild(0).transform.forward;
+         Vector3 right = transform.GetChild(0).transform.right;
+
         if (Input.GetKey(KeyCode.W))
         {
-            moveDir = Vector3.forward;
+            moveDir = forward;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            moveDir = -Vector3.forward;
+            moveDir = -forward;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            moveDir += -Vector3.right;
+            moveDir += -right;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            moveDir += Vector3.right;
+            moveDir += right;
         }
         
         yield return new WaitForSeconds(_stepLength);
