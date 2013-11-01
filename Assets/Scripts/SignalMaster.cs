@@ -20,12 +20,21 @@ public class SignalMaster : MonoBehaviour
 
     public void ActivateNextStation()
     {
-        Debug.Log("master activaton");
-        Stations[stationIndex].Activate();
         stationIndex += 1;
+        Stations[stationIndex].Activate();
+        
     }
 
-    public SignalStation GetNext()
+    public SignalStation GetNextToActivate()
+    {
+        if (stationIndex + 1 >= Stations.Count)
+        {
+            return null;
+        }
+        return Stations[stationIndex + 1];
+    }
+
+    public SignalStation GetLastActivated()
     {
         if (stationIndex >= Stations.Count)
         {
