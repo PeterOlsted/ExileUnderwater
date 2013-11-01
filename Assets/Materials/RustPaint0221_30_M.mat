@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: RustPaint0221_30_M
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_SavedProperties:
     serializedVersion: 2
@@ -19,9 +19,24 @@ Material:
           m_Texture: {fileID: 2800000, guid: 11fa3b7c6fcde3341b521154869ee499, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 2dd3788f8589b40bf82a92d76ffc5091, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .0620300993
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .701960802, g: .470557958, b: .267020375, a: 1}
+        second: {r: .258823544, g: .214002639, b: .174579009, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .13333334, g: .13333334, b: .13333334, a: 1}
