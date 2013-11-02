@@ -14,7 +14,7 @@ public class Wreckage : MonoBehaviour
         if (canBeActivated && diver != null)
         {
             canBeActivated = false;
-               Debug.Log("Hit wreckage");
+            diver.WreckageBump();
         }
     }
 

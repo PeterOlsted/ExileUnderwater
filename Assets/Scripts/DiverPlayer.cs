@@ -42,6 +42,8 @@ public class DiverPlayer : MonoBehaviour
 
     private bool rightStep = true;
 
+    [SerializeField] private AudioClip[] _collisionClips;
+
 
     // Use this for initialization
     void Awake()
@@ -121,5 +123,13 @@ public class DiverPlayer : MonoBehaviour
     bool IsInputPressed()
     {
         return Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+    }
+
+
+    public void WreckageBump()
+    {
+        var source = GetComponent<AudioSource>();
+        source.clip = _collisionClips.RandomElement();
+        source.Play();
     }
 }
