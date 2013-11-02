@@ -28,16 +28,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Cube
+          name: _Detail
         second:
-          m_Texture: {fileID: 8900000, guid: 6993f1ee3ff1a4a3a8fec59e7cc67bde, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Detail
+          name: _Cube
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 8900000, guid: 6993f1ee3ff1a4a3a8fec59e7cc67bde, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -52,16 +52,16 @@ Material:
     m_Colors:
       data:
         first:
+          name: _Color
+        second: {r: .686274529, g: .686274529, b: .686274529, a: 1}
+      data:
+        first:
           name: _SpecColor
         second: {r: .854901969, g: .694117665, b: .43921569, a: 1}
       data:
         first:
           name: _ReflectColor
         second: {r: .597014904, g: .597014904, b: .597014904, a: 0}
-      data:
-        first:
-          name: _Color
-        second: {r: .686274529, g: .686274529, b: .686274529, a: 1}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

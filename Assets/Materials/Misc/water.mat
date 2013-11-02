@@ -61,20 +61,20 @@ Material:
     m_Colors:
       data:
         first:
-          name: _SpecColor
-        second: {r: .996078432, g: .913725495, b: .572549045, a: .784313738}
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _ReflectColor
-        second: {r: .54895103, g: .54895103, b: .54895103, a: .501960814}
+          name: _SpecColor
+        second: {r: .996078432, g: .913725495, b: .572549045, a: .784313738}
       data:
         first:
           name: _DepthColor
         second: {r: .223529413, g: .301960796, b: .356862754, a: .501960814}
       data:
         first:
-          name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+          name: _ReflectColor
+        second: {r: .54895103, g: .54895103, b: .54895103, a: .501960814}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
