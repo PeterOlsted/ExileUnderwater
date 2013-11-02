@@ -18,7 +18,7 @@ public class RuntimePlayer : MonoBehaviour
         firstClip = true;
 
         //Play this node 40 ms(depending on framerate) in the future
-        StartCoroutine(StartPlay(node, node, new DSPTime(AudioSettings.dspTime + 0.50)));
+        StartCoroutine(StartPlay(node, node, new DSPTime(AudioSettings.dspTime + 0.1)));
     }
 
     public void Break()
@@ -28,9 +28,11 @@ public class RuntimePlayer : MonoBehaviour
 
     public void Stop()
     {
+
         for (int i = 0; i < audioSources.Length; ++i)
         {
-            audioSources[i].SetScheduledEndTime(AudioSettings.dspTime - 2); //Set to end in the past
+            audioSources[i].Stop();
+            audioSources[i].SetScheduledEndTime(AudioSettings.dspTime); //Set to end in the past
         }
         StopAllCoroutines();
     }
@@ -91,7 +93,7 @@ public class RuntimePlayer : MonoBehaviour
 
         yield return StartCoroutine(FindNext(root, current, endTime));
         //Debug.Log(endTime.CurrentEndTime + " - " + AudioSettings.dspTime + " = " + (endTime.CurrentEndTime - AudioSettings.dspTime));
-        yield return new WaitForSeconds((float)(endTime.CurrentEndTime - AudioSettings.dspTime));
+        yield return new WaitForSeconds((float)(endTime.CurrentEndTime - AudioSettings.dspTime ));
         //Clean up object
         StopAndCleanup();
     }

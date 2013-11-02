@@ -43,7 +43,7 @@ namespace HDRAudio
         public void ReleaseObject(GameObject go)
         {
             go.transform.parent = transform;
-            go.transform.position = offscreen;
+            go.transform.localPosition = offscreen;
             freeObjects.Add(go);
             go.SetActive(false);
             ++freeObjectCount;

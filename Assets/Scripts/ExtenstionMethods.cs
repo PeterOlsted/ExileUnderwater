@@ -7,4 +7,9 @@ public static class ExtenstionMethods{
     {
         return Vector3.Scale(v1, v2);
     }
+
+    public static T RandomElement<T>(this T[] array)
+    {
+        return array[Random.Range(0, array.Length)];
+    }
 }

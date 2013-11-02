@@ -8,6 +8,9 @@ public class SignalMaster : MonoBehaviour
 
     [SerializeField]
     private List<SignalStation> Stations;
+
+    [SerializeField]
+    private Spotlight _spotlight;
     private int stationIndex;
 
     [SerializeField]
@@ -21,8 +24,13 @@ public class SignalMaster : MonoBehaviour
     public void ActivateNextStation()
     {
         stationIndex += 1;
-        Stations[stationIndex].Activate();
-        
+        if (stationIndex < Stations.Count)
+        {
+            _spotlight.Activate();
+            Stations[stationIndex].Activate();
+        }
+        else
+            stationIndex -= 1;
     }
 
     public SignalStation GetNextToActivate()

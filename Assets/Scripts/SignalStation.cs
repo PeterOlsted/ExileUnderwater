@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SignalStation : MonoBehaviour {
+public class SignalStation : MonoBehaviour
+{
+    [SerializeField] private GameObject _toActivate;
+
     public void Activate()
     {
-        Debug.Log("Station activated");
-        transform.GetChild(0).gameObject.SetActive(true);    
+        
+        _toActivate.SetActive(true);    
     }
 }
