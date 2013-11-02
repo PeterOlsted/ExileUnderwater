@@ -34,6 +34,8 @@ public class DiverPlayer : MonoBehaviour
     [SerializeField]
     private float _headXMovement;
 
+    [SerializeField] private AudioSource _stepSound;
+
     private Vector3 _speed;
 
     private float _stepStartTime;
@@ -56,10 +58,13 @@ public class DiverPlayer : MonoBehaviour
     {
         if (!isMoving && IsInputPressed() && canMove)
         {
+
             StartCoroutine(WaitForMove());
         }
         if (isMoving)
         {
+            if (!_stepSound.isPlaying && IsInputPressed())
+                _stepSound.Play();
             float endTime = _stepStartTime + _stepLength;
             float stepPercentage = 1.0f - ((endTime - Time.time) / _stepLength);
             Vector3 move = moveDir.Mul(_acceleration) * _stepCurve.Evaluate(stepPercentage);
@@ -73,8 +78,15 @@ public class DiverPlayer : MonoBehaviour
             _NonHelmet.transform.localPosition = _NonHelmet.transform.localPosition.X(xOffset * _headXMovement);
         }
 
+        
+
         if (!isMoving)
         {
+            if (!IsInputPressed())
+            {
+                _stepSound.Stop();
+            }
+            
             _speed.x = _speed.x - Mathf.Lerp(_speed.x, 0, 0.1f) * Time.deltaTime;
             _speed.z = _speed.z - Mathf.Lerp(_speed.z, 0, 0.1f) * Time.deltaTime;
         }
