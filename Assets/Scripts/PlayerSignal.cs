@@ -43,6 +43,8 @@ public class PlayerSignal : MonoBehaviour
 
     IEnumerator ActivateNext()
     {
+        yield return new WaitForSeconds(1);
+        //(Object.FindObjectOfType(typeof(DiverPlayer)) as DiverPlayer).Presentation();
         yield return new WaitForSeconds(_activationDelay);
         waiting = false;
         SignalMaster.Master.ActivateNextStation();

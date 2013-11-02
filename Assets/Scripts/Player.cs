@@ -65,4 +65,5 @@ public class Player : MonoBehaviour
             rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, _maxSpeed);
         }*/
     }
+
 }

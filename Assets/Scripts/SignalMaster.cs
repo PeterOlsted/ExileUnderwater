@@ -21,6 +21,8 @@ public class SignalMaster : MonoBehaviour
         Master = this;
     }
 
+    
+
     public void ActivateNextStation()
     {
         stationIndex += 1;

@@ -20,7 +20,7 @@ public class Spotlight : MonoBehaviour
         light = GetComponent<Light>();
         light.enabled = false;
         light.spotAngle = _startAngle;
-        Activate();
+        //Activate();
     }
 
     public void Activate()

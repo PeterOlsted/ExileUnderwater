@@ -36,6 +36,8 @@ public class DiverPlayer : MonoBehaviour
 
     [SerializeField] private AudioSource _stepSound;
 
+    [SerializeField] private Camera secondView;
+
     private Vector3 _speed;
 
     private float _stepStartTime;
@@ -143,5 +145,11 @@ public class DiverPlayer : MonoBehaviour
         var source = GetComponent<AudioSource>();
         source.clip = _collisionClips.RandomElement();
         source.Play();
+    }
+
+    public void Presentation()
+    {
+        secondView.enabled = true;
+        gameObject.SetActive(false);
     }
 }
